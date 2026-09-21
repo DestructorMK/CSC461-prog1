@@ -4,8 +4,73 @@
 <meta charset="UTF-8">
 <title>Pixel Drawing</title>
 <script type="text/javascript" src="drawstuff.js"></script>
+<style>
+    body { font-family: sans-serif; }
+    #controls { display: flex; gap: 24px; flex-wrap: wrap; margin-bottom: 12px; max-width: 900px; }
+    fieldset { border: 1px solid #ccc; }
+    label { display: inline-block; width: 32px; font-size: 12px; }
+    input[type=number] { width: 64px; margin-bottom: 4px; }
+    #viewport { border: 1px solid #999; }
+</style>
 </head>
 <body onload="main();">
+
+<div id="controls">
+
+    <fieldset>
+        <legend>Canvas</legend>
+        <label>W</label><input type="number" id="canvasWidth" value="512"><br>
+        <label>H</label><input type="number" id="canvasHeight" value="512">
+    </fieldset>
+
+    <fieldset>
+        <legend>Eye</legend>
+        <label>X</label><input type="number" step="0.05" id="eyeX" value="0.5"><br>
+        <label>Y</label><input type="number" step="0.05" id="eyeY" value="0.5"><br>
+        <label>Z</label><input type="number" step="0.05" id="eyeZ" value="-0.5">
+    </fieldset>
+
+    <fieldset>
+        <legend>Look at (dir)</legend>
+        <label>X</label><input type="number" step="0.05" id="lookX" value="0"><br>
+        <label>Y</label><input type="number" step="0.05" id="lookY" value="0"><br>
+        <label>Z</label><input type="number" step="0.05" id="lookZ" value="1">
+    </fieldset>
+
+    <fieldset>
+        <legend>Up</legend>
+        <label>X</label><input type="number" step="0.05" id="upX" value="0"><br>
+        <label>Y</label><input type="number" step="0.05" id="upY" value="1"><br>
+        <label>Z</label><input type="number" step="0.05" id="upZ" value="0">
+    </fieldset>
+
+    <fieldset>
+        <legend>Window (view space)</legend>
+        <label>L</label><input type="number" step="0.05" id="winLeft" value="-0.5"><br>
+        <label>R</label><input type="number" step="0.05" id="winRight" value="0.5"><br>
+        <label>B</label><input type="number" step="0.05" id="winBottom" value="-0.5"><br>
+        <label>T</label><input type="number" step="0.05" id="winTop" value="0.5">
+    </fieldset>
+
+    <fieldset>
+        <legend>Lighting</legend>
+        <label style="width:auto;"><input type="checkbox" id="shadowsOn" checked> Shadows</label><br>
+        <label style="width:auto;"><input type="checkbox" id="trianglesOn"> Triangles (Part 5)</label>
+    </fieldset>
+
+    <fieldset>
+        <legend>Part 6</legend>
+        <button type="button" onclick="renderMakeItYourOwn();">Make it your own</button>
+    </fieldset>
+
+    <fieldset>
+        <legend>&nbsp;</legend>
+        <button type="button" onclick="renderFromUI();">Render</button>
+    </fieldset>
+
+</div>
+
 <canvas id="viewport" width="512" height="512"></canvas>
+
 </body>
 </html>
